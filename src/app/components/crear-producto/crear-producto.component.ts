@@ -8,19 +8,11 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Producto } from '../../models/producto';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-crear-producto',
   standalone: true,
-  imports: [
-    RouterLink,
-    ReactiveFormsModule,
-    NgIf,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-  ],
+  imports: [RouterLink, ReactiveFormsModule, NgIf],
   templateUrl: './crear-producto.component.html',
   styleUrl: './crear-producto.component.css',
 })
