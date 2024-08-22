@@ -13,18 +13,18 @@
               <input
                 type="text"
                 class="form-control form-control-lg"
-                placeholder="Producto"
-                formControlName="producto"
+                placeholder="Tipo de Producto"
+                formControlName="tipo"
               />
               <div
                 class="text-danger"
                 *ngIf="
-                  productoForm.get('producto')?.hasError('required') &&
-                  productoForm.get('producto')?.touched
+                  productoForm.get('tipo')?.hasError('required') &&
+                  productoForm.get('tipo')?.touched
                 "
               >
                 <span
-                  >EL nombre del producto es <strong>obligatorio</strong></span
+                  >EL nombre del tipo de producto es <strong>obligatorio</strong></span
                 >
               </div>
             </div>
@@ -32,18 +32,18 @@
               <input
                 type="text"
                 class="form-control form-control-lg"
-                placeholder="Categoria"
-                formControlName="categoria"
+                placeholder="Talle del Producto"
+                formControlName="talle"
               />
               <div
                 class="text-danger"
                 *ngIf="
-                  productoForm.get('categoria')?.hasError('required') &&
-                  productoForm.get('categoria')?.touched
+                  productoForm.get('talle')?.hasError('required') &&
+                  productoForm.get('talle')?.touched
                 "
               >
                 <span
-                  >La categoria del producto es
+                  >EL talle del producto es
                   <strong>obligatorio</strong></span
                 >
               </div>
@@ -52,18 +52,18 @@
               <input
                 type="text"
                 class="form-control form-control-lg"
-                placeholder="Ubicacion"
-                formControlName="ubicacion"
+                placeholder="Color del Producto"
+                formControlName="color"
               />
               <div
                 class="text-danger"
                 *ngIf="
-                  productoForm.get('ubicacion')?.hasError('required') &&
-                  productoForm.get('ubicacion')?.touched
+                  productoForm.get('color')?.hasError('required') &&
+                  productoForm.get('color')?.touched
                 "
               >
                 <span
-                  >EL ubicacion del producto es
+                  >EL color del producto es
                   <strong>obligatorio</strong></span
                 >
               </div>

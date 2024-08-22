@@ -21,9 +21,9 @@ export class CrearProductoComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.productoForm = this.fb.group({
-      producto: ['', Validators.required],
-      categoria: ['', Validators.required],
-      ubicacion: ['', Validators.required],
+      tipo: ['', Validators.required],
+      talle: ['', Validators.required],
+      color: ['', Validators.required],
       precio: ['', Validators.required],
     });
   }
@@ -33,9 +33,9 @@ export class CrearProductoComponent implements OnInit {
   agregarProducto() {
     console.log(this.productoForm);
     const PRODUCTO: Producto = {
-      nombre: this.productoForm.get('producto')?.value,
-      categoria: this.productoForm.get('categoria')?.value,
-      ubicacion: this.productoForm.get('ubicacion')?.value,
+      tipo: this.productoForm.get('tipo')?.value,
+      talle: this.productoForm.get('talle')?.value,
+      color: this.productoForm.get('color')?.value,
       precio: this.productoForm.get('precio')?.value,
     };
     this.router.navigate(['/']);

@@ -9,5 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './welcome.component.css',
 })
 export class WelcomeComponent {
-  User = false;
+  User = true;
 }
