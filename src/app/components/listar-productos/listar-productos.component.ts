@@ -1,17 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CargarScriptsService } from '../../services/cargar-scripts.service';
+import { ProductoService } from '../../services/producto.service';
+import { Producto } from '../../models/producto';
+import { NgFor, NgIf } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-listar-productos',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, NgFor, NgIf],
   providers: [CargarScriptsService],
   templateUrl: './listar-productos.component.html',
   styleUrl: './listar-productos.component.css',
 })
-export class ListarProductosComponent {
-  constructor(private _cargaScripts: CargarScriptsService) {
+export class ListarProductosComponent implements OnInit {
+  listProductos: Producto[] = [];
+
+  constructor(
+    private _cargaScripts: CargarScriptsService,
+    private __productoService: ProductoService
+  ) {
     _cargaScripts.carga(['js/dinamic']);
+  }
+
+  ngOnInit(): void {
+    this.obtenerProductos();
+  }
+
+  obtenerProductos() {
+    this.__productoService.getAllProductos().subscribe((data) => {
+      this.listProductos = data;
+    });
+  }
+
+  eliminarProducto(id: any) {
+    this.__productoService.eliminarProducto(id).subscribe(
+      (data) => {
+        this.obtenerProductos();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
